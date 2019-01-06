@@ -14,10 +14,10 @@ public class Dog {
 
     @Id
     @SequenceGenerator(name = "dog_dog_id_seq",
-                       sequenceName = "shelter.dog_dog_id_seq",
-                       allocationSize = 1)
+            sequenceName = "shelter.dog_dog_id_seq",
+            allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
-                    generator = "dog_dog_id_seq")
+            generator = "dog_dog_id_seq")
     @Column(name = "dog_id", nullable = false)
     private Integer dogId;
 
