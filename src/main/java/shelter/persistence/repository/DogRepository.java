@@ -8,4 +8,5 @@ import shelter.persistence.model.Dog;
 @RepositoryRestResource
 @CrossOrigin(origins = {"http://localhost:4200"})
 public interface DogRepository extends JpaRepository<Dog, Integer> {
+
 }

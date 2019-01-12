@@ -6,3 +6,10 @@ spring:
     driver-class-name: org.postgresql.Driver
   jpa:
     open-in-view: false
+logging:
+   level:
+     org.springframework.web: INFO
+     org.hibernate: ERROR
+     shelter.controllers: INFO
+   pattern:
+     console: "%d %-5level %logger : %msg%n"

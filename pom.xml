@@ -17,6 +17,8 @@
         <postgresql.version>42.2.5</postgresql.version>
         <lombok.version>1.18.4</lombok.version>
         <jaxb-api.version>2.3.1</jaxb-api.version>
+        <jackson-databind.version>2.9.8</jackson-databind.version>
+        <jackson-dataformat-yaml.version>2.9.8</jackson-dataformat-yaml.version>
     </properties>
 
     <dependencies>
@@ -25,6 +27,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
             <version>${spring-boot.version}</version>
         </dependency>
         <dependency>
@@ -52,7 +60,11 @@
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
             <version>${spring-boot.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
 
         <!-- postgres -->
         <dependency>
@@ -74,5 +86,6 @@
             <artifactId>jaxb-api</artifactId>
             <version>${jaxb-api.version}</version>
         </dependency>
+
     </dependencies>
 </project>
