@@ -2,6 +2,8 @@ package shelter.controllers;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +29,19 @@ public class DogsController {
     @CrossOrigin(origins = {ORIGIN})
     public Collection<Dog> getAllDogs() {
         return dogRepository.findAllByOrderByDogId();
+    }
+
+    @GetMapping("/dogs/all/{page}")
+    @CrossOrigin(origins = {ORIGIN})
+    public Collection<Dog> getAllDogsPaginated(@PathVariable Integer page) {
+        Long allCount = dogRepository.count();
+        if (page < allCount / 3 + 1) {
+            Pageable pageableRequest = PageRequest.of(page, 3);
+            return dogRepository.findAllByOrderByDogId(pageableRequest);
+        } else {
+            Pageable pageableRequest = PageRequest.of(Math.round(allCount / 3), 3);
+            return dogRepository.findAllByOrderByDogId(pageableRequest);
+        }
     }
 
     @GetMapping("/dogs/{id}")
