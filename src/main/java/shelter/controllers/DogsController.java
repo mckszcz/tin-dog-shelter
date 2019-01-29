@@ -17,7 +17,7 @@ import java.util.Collection;
 @Slf4j
 public class DogsController {
 
-    private final static String ORIGIN = "http://localhost:4200";
+    protected final static String ORIGIN = "http://localhost:4200";
     private DogRepository dogRepository;
 
     @Autowired

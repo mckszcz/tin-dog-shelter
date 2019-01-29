@@ -42,4 +42,10 @@ public class Dog {
     @Column(name = "adoption_date")
     private Date adoptionDate;
 
+    @Column(name = "shelter_id")
+    private Integer shelterId;
+
+    @Column(name = "person_id")
+    private Integer personId;
+
 }
