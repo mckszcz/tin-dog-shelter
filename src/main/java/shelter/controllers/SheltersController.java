@@ -13,7 +13,6 @@ import static shelter.controllers.DogsController.ORIGIN;
 
 
 @RestController
-@Slf4j
 public class SheltersController {
 
     private ShelterRepository shelterRepository;

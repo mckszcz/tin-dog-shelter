@@ -13,5 +13,6 @@ import java.util.List;
 @CrossOrigin(origins = {"http://localhost:4200"})
 public interface DogRepository extends JpaRepository<Dog, Integer>, PagingAndSortingRepository<Dog, Integer> {
     public List<Dog> findAllByOrderByDogId();
+
     public List<Dog> findAllByOrderByDogId(Pageable pageable);
 }
